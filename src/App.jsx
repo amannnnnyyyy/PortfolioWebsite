@@ -1,6 +1,6 @@
 import React, { useRef } from 'react'
 import {Canvas, useFrame} from "@react-three/fiber"
-import {OrbitControls} from "@react-three/drei"
+import {OrbitControls, Sparkles} from "@react-three/drei"
 
 const RotatingCube =()=>{
   const meshRef = useRef()
@@ -15,11 +15,19 @@ const RotatingCube =()=>{
   return(
     <mesh ref={meshRef} rotation={[0, 0, 0]} position={[0, 0, 0]}>
       <cylinderGeometry args={[1, 1, 1]} />
-      <meshStandardMaterial color={"#000000"} emissive={"#55525f"} />
+      <meshStandardMaterial color={"#000000"} emissive={"#468585"} />
+
+      <Sparkles count={100} scale={1} size={6} speed={0.005} noise={0.2} color={"#b9f2ff"}/>
     </mesh>
   )
 }
 
+
+/**
+ * The App component sets up a Three.js scene using @react-three/fiber and @react-three/drei.
+ * It renders a full-screen Canvas with OrbitControls, a directional light, and a background color.
+ * The RotatingCube component is rendered within the Canvas.
+ */
 
 const App = () => {
   return (
