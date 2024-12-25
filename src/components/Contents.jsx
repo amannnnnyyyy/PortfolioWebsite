@@ -23,7 +23,7 @@ export const NavItems = () =>{
               {navLinks.map(
                   ({id, name, href}) => 
                  ( <li key={id} className='nav-li'>
-                      <a href={href} className='nav-li_a'
+                      <a href={href} className='nav-li_a py-1 hover:text-sky-700  cursor-pointer'
                           onClick={()=>{}}>
                           {name}
                       </a>
