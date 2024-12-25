@@ -1,6 +1,22 @@
 import React, { useState } from 'react'
 import Contents from '../components/Contents'
 
+const navItems = () =>{
+    return (
+        <div>
+            <ul className='nav-ul'>
+                {["Home","About","Services","Contact","Blog","Portfolio","FAQ","Testimonials"].map(
+                    (item, index) => (
+                        <li key={index} className='nav-li'>
+                            <a href={`#${item}`} className='nav-li_a'>{item}</a>
+                        </li>
+                    )
+                )}
+            </ul>
+        </div>
+    )
+}
+
 const NavBar = () => {
     const [isVisible, setIsVisible] = useState(false)
     const name = "Amanuel"
@@ -29,8 +45,12 @@ const NavBar = () => {
                
                 <button className='flex gap-5 items-center'>
                     <img className='opacity-90 hover:opacity-100' src={nightModePic} width={90} height={1} alt="day mode" onClick={toggleNightMode}/>
-                    <img src={hamburgerIcon} alt="toggle" className='w-6 h-6 opacity-90 hover:opacity-100' onClick={toggleHamburger}/>
+                    <img src={hamburgerIcon} alt="toggle" className='w-6 h-6 opacity-90 hover:opacity-100  sm:hidden' aria-label='toggle menu' onClick={toggleHamburger}/>
                 </button>
+
+                <nav className='sm:flex hidden'>
+
+                </nav>
             
                 
             </div>
