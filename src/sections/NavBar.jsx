@@ -1,19 +1,19 @@
 import React, { useState } from 'react'
 import Contents from '../components/Contents'
+import { navLinks } from '../constants'
 
-const navItems = () =>{
+const NavItems = () =>{
     return (
-        <div>
             <ul className='nav-ul'>
-                {["Home","About","Services","Contact","Blog","Portfolio","FAQ","Testimonials"].map(
-                    (item, index) => (
-                        <li key={index} className='nav-li'>
-                            <a href={`#${item}`} className='nav-li_a'>{item}</a>
-                        </li>
-                    )
-                )}
+                {navLinks.map(
+                    ({id, name, href}) => 
+                   ( <li key={id} className='nav-li'>
+                        <a href={href} className='nav-li_a'
+                            onClick={()=>{}}>
+                            {name}
+                        </a>
+                    </li>))}
             </ul>
-        </div>
     )
 }
 
@@ -43,15 +43,16 @@ const NavBar = () => {
                     {name}
                 </a>
                
-                <button className='flex gap-5 items-center'>
-                    <img className='opacity-90 hover:opacity-100' src={nightModePic} width={90} height={1} alt="day mode" onClick={toggleNightMode}/>
-                    <img src={hamburgerIcon} alt="toggle" className='w-6 h-6 opacity-90 hover:opacity-100  sm:hidden' aria-label='toggle menu' onClick={toggleHamburger}/>
-                </button>
+               <div className='flex items-center gap-3'>
+                    <button className='flex gap-5 items-center'>
+                        <img className='opacity-90 hover:opacity-100' src={nightModePic} width={90} height={1} alt="day mode" onClick={toggleNightMode}/>
+                        <img src={hamburgerIcon} alt="toggle" className='w-6 h-6 opacity-90 hover:opacity-100  sm:hidden' aria-label='toggle menu' onClick={toggleHamburger}/>
+                    </button>
 
-                <nav className='sm:flex hidden'>
-
-                </nav>
-            
+                    <nav className='sm:flex hidden'>
+                        <NavItems/>
+                    </nav>
+                </div>
                 
             </div>
             <Contents visibility = {isVisible}/>
