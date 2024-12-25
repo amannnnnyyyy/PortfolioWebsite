@@ -1,21 +1,5 @@
 import React, { useState } from 'react'
-import Contents from '../components/Contents'
-import { navLinks } from '../constants'
-
-const NavItems = () =>{
-    return (
-            <ul className='nav-ul'>
-                {navLinks.map(
-                    ({id, name, href}) => 
-                   ( <li key={id} className='nav-li'>
-                        <a href={href} className='nav-li_a'
-                            onClick={()=>{}}>
-                            {name}
-                        </a>
-                    </li>))}
-            </ul>
-    )
-}
+import Contents, { NavItems } from '../components/Contents'
 
 const NavBar = () => {
     const [isVisible, setIsVisible] = useState(false)
