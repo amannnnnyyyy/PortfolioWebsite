@@ -9,6 +9,7 @@ import { calculateSizes } from '../constants';
 import Target from '../components/Target';
 import ReactLogo from '../components/ReactLogo';
 import Cube from '../components/Cube';
+import Rings from '../components/Rings';
 
 const Hero = () => {
   const isMobile = useMediaQuery({query: '(max-width: 768px)'})
@@ -88,6 +89,7 @@ const Hero = () => {
               <Target position={sizes.targetPosition}/>
               <ReactLogo position={sizes.reactLogoPosition}/>
               <Cube position={sizes.cubePosition}/>
+              <Rings position={sizes.ringPosition}/>
             </group>
             <ambientLight intensity={1} />
             <directionalLight position={[10, 10, 10]} intensity={0.5} color={'#9cdba6'} />
