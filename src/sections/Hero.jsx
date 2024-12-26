@@ -39,7 +39,7 @@ const Hero = () => {
         </p>
       </div>
 
-      <div className='w-full h-full flex justify-center items-center absolute inset-0 z-50'>
+      <div className='w-full h-full flex justify-center items-center absolute inset-0 z-10'>
       <Leva />
       <Canvas className='w-full h-full'  style={{ transform: 'translate(400px,100px)' }}>
           <Suspense fallback={<CanvasLoader />}>
@@ -48,10 +48,9 @@ const Hero = () => {
             <ambientLight intensity={1} />
             <directionalLight position={[10, 10, 10]} intensity={0.5} color={'#9cdba6'} />
             <HackerRoom 
-                // scale={0.1} 
-                position={[0, 0, 0]} 
-                rotation={[0, -Math.PI / 2, 0]} 
-                scale = {[x.positionX, x.positionY, x.positionZ]}
+                position = {[x.positionX, x.positionY, x.positionZ]}
+                rotation = {[x.rotationX, x.rotationY, x.rotationZ]}
+                scale = {[x.scale, x.scale, x.scale]}
             />
           </Suspense>
         </Canvas>
