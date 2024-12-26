@@ -59,7 +59,7 @@ const Hero = () => {
   },
   );
   return (
-    <section className='min-h-screen w-full flex flex-col relative'>
+    <section className='min-h-screen w-full flex flex-col relative gap-10'>
       <div className='w-full mx-auto flex flex-col sm:mt-36 mt-20 c-space gap-3 z-10 relative'>
         <p className='sm:text-3xl text-2xl text-white font-medium text-center font-generalsans'>
           Hi, I am Amanuel 
@@ -70,19 +70,20 @@ const Hero = () => {
         </p>
       </div>
 
-      <div className='w-full h-full flex justify-center items-center absolute inset-0 z-10'>
+      <div className='w-full h-full flex justify-center items-center absolute inset-0 z-10 mt-5'>
       {/* <Leva /> */}
       <Canvas className='w-full h-full'>
           <Suspense fallback={<CanvasLoader />}>
-            <PerspectiveCamera makeDefault position={[0, 0, 30]} />
-            <OrbitControls enableZoom enablePan enableRotate />
-            <ambientLight intensity={1} />
-            <directionalLight position={[10, 10, 10]} intensity={0.5} color={'#9cdba6'} />
+            <PerspectiveCamera makeDefault position={[0, 0, 20]} />
+            {/* <OrbitControls enableZoom enablePan enableRotate /> */}
             <HackerRoom 
                 position = {sizes.deskPosition}
                 rotation = {[0.2, -3.2, 0]}
                 scale = {sizes.deskScale}
             />
+            <ambientLight intensity={1} />
+            <directionalLight position={[10, 10, 10]} intensity={0.5} color={'#9cdba6'} />
+            
           </Suspense>
         </Canvas>
       </div>
