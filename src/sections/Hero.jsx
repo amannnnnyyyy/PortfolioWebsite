@@ -58,23 +58,23 @@ const Hero = () => {
           Hi, I am Amanuel 
           <span className='waving-hand'>👋</span>
         </p>
-        <p className='hero_tag text-gray_gradient bg-black bg-opacity-50 p-2 rounded-md text-center'>
-          Software Developer <span className='hidden sm:inline'>|</span> ML Engineer
+        <p className='hero_tag text-gray_gradient bg-black bg-opacity-50 p-2 rounded-md text-center' style={{ fontSize: 'calc(1rem + 1vw)' }}>
+          Software Developer <span className='hidden md:inline'>|</span> <br className='md:hidden'></br> ML Engineer
         </p>
       </div>
 
       <div className='w-full h-full flex justify-center items-center absolute inset-0 z-10'>
       <Leva />
-      <Canvas className='w-full h-full'  style={{ transform: 'translate(400px,100px)' }}>
+      <Canvas className='w-full h-full'>
           <Suspense fallback={<CanvasLoader />}>
             <PerspectiveCamera makeDefault position={[0, 0, 30]} />
             <OrbitControls enableZoom enablePan enableRotate />
             <ambientLight intensity={1} />
             <directionalLight position={[10, 10, 10]} intensity={0.5} color={'#9cdba6'} />
             <HackerRoom 
-                position = {[-18, -6.1, -4.9]}
-                rotation = {[0.4, -2.7, 0.2]}
-                scale = {[0.1,0.1,0.1]}
+                position = {[2.5, -10, -8.1]}
+                rotation = {[0.2, -3.2, 0]}
+                scale = {0.1}
             />
           </Suspense>
         </Canvas>
