@@ -81,6 +81,9 @@ const Hero = () => {
                 rotation = {[0.2, -3.2, 0]}
                 scale = {sizes.deskScale}
             />
+            <group>
+              
+            </group>
             <ambientLight intensity={1} />
             <directionalLight position={[10, 10, 10]} intensity={0.5} color={'#9cdba6'} />
             
