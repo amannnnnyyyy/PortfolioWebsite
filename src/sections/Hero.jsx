@@ -5,9 +5,14 @@ import HackerRoom from '../components/HackerRoom';
 import CanvasLoader from '../components/CanvasLoader';
 import { Leva, useControls } from 'leva';
 import { useMediaQuery } from 'react-responsive';
+import { calculateSizes } from '../constants';
 
 const Hero = () => {
   const isMobile = useMediaQuery({query: '(max-width: 768px)'})
+  const isSmall = useMediaQuery({query: '(max-width: 480px)'})
+  const isTablet = useMediaQuery({query: '(min-width: 768px) and (max-width: 1024px)'})
+
+  const sizes = calculateSizes(isSmall, isMobile, isTablet)
   const x = useControls('HackerRoom', {
       positionX:{
         value: 2.5,
@@ -66,7 +71,7 @@ const Hero = () => {
       </div>
 
       <div className='w-full h-full flex justify-center items-center absolute inset-0 z-10'>
-      <Leva />
+      {/* <Leva /> */}
       <Canvas className='w-full h-full'>
           <Suspense fallback={<CanvasLoader />}>
             <PerspectiveCamera makeDefault position={[0, 0, 30]} />
@@ -74,9 +79,9 @@ const Hero = () => {
             <ambientLight intensity={1} />
             <directionalLight position={[10, 10, 10]} intensity={0.5} color={'#9cdba6'} />
             <HackerRoom 
-                position = {[isMobile?0.5:2.5, isMobile?-2:-10, -8.1]}
+                position = {sizes.deskPosition}
                 rotation = {[0.2, -3.2, 0]}
-                scale = {isMobile?0.07:0.1}
+                scale = {sizes.deskScale}
             />
           </Suspense>
         </Canvas>
