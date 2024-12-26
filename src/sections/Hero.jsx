@@ -3,8 +3,30 @@ import { Canvas } from '@react-three/fiber';
 import React, { Suspense } from 'react';
 import HackerRoom from '../components/HackerRoom';
 import CanvasLoader from '../components/CanvasLoader';
+import { Leva, useControls } from 'leva';
 
 const Hero = () => {
+  const x = useControls('HackerRoom', {
+      positionX:{
+        value: 2.5,
+        min: -10,
+        max: 10,
+        step: 0.1,
+      },
+      positionY:{
+        value: 2.5,
+        min: -10,
+        max: 10,
+        step: 0.1,
+      },
+      positionZ:{
+        value: 2.5,
+        min: -10,
+        max: 10,
+        step: 0.1,
+      }
+  }
+  );
   return (
     <section className='min-h-screen w-full flex flex-col relative'>
       <div className='w-full mx-auto flex flex-col sm:mt-36 mt-20 c-space gap-3 z-10 relative'>
@@ -17,14 +39,20 @@ const Hero = () => {
         </p>
       </div>
 
-      <div className='w-full h-full flex justify-center items-center absolute inset-0 z-0'>
-        <Canvas className='w-full h-full'  style={{ transform: 'translate(400px,100px)' }}>
+      <div className='w-full h-full flex justify-center items-center absolute inset-0 z-50'>
+      <Leva />
+      <Canvas className='w-full h-full'  style={{ transform: 'translate(400px,100px)' }}>
           <Suspense fallback={<CanvasLoader />}>
             <PerspectiveCamera makeDefault position={[0, 0, 30]} />
             <OrbitControls enableZoom enablePan enableRotate />
             <ambientLight intensity={1} />
             <directionalLight position={[10, 10, 10]} intensity={0.5} color={'#9cdba6'} />
-            <HackerRoom scale={0.1} position={[0, 0, 0]} rotation={[0, -Math.PI / 2, 0]} />
+            <HackerRoom 
+                // scale={0.1} 
+                position={[0, 0, 0]} 
+                rotation={[0, -Math.PI / 2, 0]} 
+                scale = {[x.positionX, x.positionY, x.positionZ]}
+            />
           </Suspense>
         </Canvas>
       </div>
