@@ -4,8 +4,10 @@ import React, { Suspense } from 'react';
 import HackerRoom from '../components/HackerRoom';
 import CanvasLoader from '../components/CanvasLoader';
 import { Leva, useControls } from 'leva';
+import { useMediaQuery } from 'react-responsive';
 
 const Hero = () => {
+  const isMobile = useMediaQuery({query: '(max-width: 768px)'})
   const x = useControls('HackerRoom', {
       positionX:{
         value: 2.5,
@@ -72,9 +74,9 @@ const Hero = () => {
             <ambientLight intensity={1} />
             <directionalLight position={[10, 10, 10]} intensity={0.5} color={'#9cdba6'} />
             <HackerRoom 
-                position = {[2.5, -10, -8.1]}
+                position = {[isMobile?0.5:2.5, isMobile?-2:-10, -8.1]}
                 rotation = {[0.2, -3.2, 0]}
-                scale = {0.1}
+                scale = {isMobile?0.07:0.1}
             />
           </Suspense>
         </Canvas>
