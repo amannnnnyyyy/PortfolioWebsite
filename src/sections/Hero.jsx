@@ -9,8 +9,8 @@ const Hero = () => {
   const x = useControls('HackerRoom', {
       positionX:{
         value: 2.5,
-        min: -10,
-        max: 10,
+        min: -20,
+        max: 20,
         step: 0.1,
       },
       positionY:{
@@ -24,8 +24,32 @@ const Hero = () => {
         min: -10,
         max: 10,
         step: 0.1,
-      }
-  }
+      },
+      rotationX:{
+        value: 0,
+        min: -Math.PI,
+        max: Math.PI,
+        step: 0.1,
+      },
+      rotationY:{
+        value: 0,
+        min: -Math.PI,
+        max: Math.PI,
+        step: 0.1,
+      },
+      rotationZ:{
+        value: 0,
+        min: -Math.PI,
+        max: Math.PI,
+        step: 0.1,
+      },
+      scale:{
+        value: 1,
+        min: 0,
+        max: 5,
+        step: 0.1,
+      },
+  },
   );
   return (
     <section className='min-h-screen w-full flex flex-col relative'>
@@ -48,9 +72,9 @@ const Hero = () => {
             <ambientLight intensity={1} />
             <directionalLight position={[10, 10, 10]} intensity={0.5} color={'#9cdba6'} />
             <HackerRoom 
-                position = {[x.positionX, x.positionY, x.positionZ]}
-                rotation = {[x.rotationX, x.rotationY, x.rotationZ]}
-                scale = {[x.scale, x.scale, x.scale]}
+                position = {[-18, -6.1, -4.9]}
+                rotation = {[0.4, -2.7, 0.2]}
+                scale = {[0.1,0.1,0.1]}
             />
           </Suspense>
         </Canvas>
