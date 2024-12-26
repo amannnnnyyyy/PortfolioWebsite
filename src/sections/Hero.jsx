@@ -7,6 +7,7 @@ import { Leva, useControls } from 'leva';
 import { useMediaQuery } from 'react-responsive';
 import { calculateSizes } from '../constants';
 import Target from '../components/Target';
+import ReactLogo from '../components/ReactLogo';
 
 const Hero = () => {
   const isMobile = useMediaQuery({query: '(max-width: 768px)'})
@@ -84,6 +85,7 @@ const Hero = () => {
             />
             <group>
               <Target position={sizes.targetPosition}/>
+              <ReactLogo/>
             </group>
             <ambientLight intensity={1} />
             <directionalLight position={[10, 10, 10]} intensity={0.5} color={'#9cdba6'} />
