@@ -23,8 +23,9 @@ const NavBar = () => {
         <div className='max-w-7xl mx-auto'>
             <div className='flex justify-between items-center py-5 mx-auto c-space'>
 
-                <a href="/" className='text-neutral-400 font-bold text-xl hover:text-white transition-colors'>
-                    {name}
+                <a href="/" className='text-neutral-400 font-bold text-xl hover:text-white transition-colors flex items-center'>
+                    <img src="assets/my-logo.png" alt="aman logo" height={56} width={56} className='filter invert transition duration-300'/>
+                    <p>{name}</p>
                 </a>
                
                <div className='flex items-center gap-3'>
