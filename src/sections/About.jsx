@@ -10,11 +10,10 @@ const About = () => {
     };
 
     useEffect(() => {
-        // Zoom into the specified location
         if (globeRef.current) {
             globeRef.current.pointOfView(
-                { lat: location.lat, lng: location.lng, altitude: 0.5 }, // Adjust altitude for zoom level
-                2000 // Duration of zoom animation in milliseconds
+                { lat: location.lat, lng: location.lng, altitude: 0.5 }, 
+                2000 
             );
         }
     }, []);
