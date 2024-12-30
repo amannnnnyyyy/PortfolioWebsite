@@ -81,7 +81,7 @@ const Hero = () => {
           <Suspense fallback={<CanvasLoader />}>
             <PerspectiveCamera makeDefault position={[0, 0, 20]} />
             {/* <OrbitControls enableZoom enablePan enableRotate /> */}
-            <HeroCamera>
+            <HeroCamera isMobile={isMobile}>
             <HackerRoom 
                 position = {sizes.deskPosition}
                 rotation = {[0.2, -3.2, 0]}
