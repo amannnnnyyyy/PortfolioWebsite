@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react'
 import Globe from 'react-globe.gl'
+import Button from '../components/Button';
 
 const About = () => {
     const globeRef = useRef();
@@ -115,9 +116,20 @@ const About = () => {
                 }
             ]}/>
                         </div>
+                        <div>
+                            <p className='grid-headtext'>
+                                I work remotely
+                            </p>
+                            <p className='grid-subtext'>
+                                I am based in Ethiopia, but available with remote work
+                            </p>
+                            <Button name="Contact me" isBeam containerClass="w-full mt-10"/>
+                        </div>
                     </div>
 
                 </div>
+
+                
             </div>
         </section>
     )
