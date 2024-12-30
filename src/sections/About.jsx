@@ -103,7 +103,7 @@ const About = () => {
                     </div>
 
                 </div>
-                <div className='col-span-1 xl:row-span-3'>
+                <div className='col-span-1 xl:row-span-4'>
                     <div className='grid-container'>
                         <div className='rounded-3xl w-full sm:h-[326px] h-fit flex justify-center items-center'>
                            <Globe ref={globeRef}
@@ -158,7 +158,7 @@ const About = () => {
                             <p className='grid-subtext text-center'>Contact me</p>
                             <div className='copy-container' onClick={handleCopy}>
                                 <img src={hasCopied?"assets/tick.svg":"assets/copy.svg"} alt="copy" />
-                                {hasCopied && <p className='lg:text-xl md:text-lg font-medium text-gray_gradient text-white'>You have copied my E-mail</p>}
+                                <p className='lg:text-l md:text-lg font-medium text-gray_gradient text-white'>{hasCopied? "You have copied my E-mail":"amanuelmoha.official@gmail.com"}</p>
                             </div>
                         </div>
                     </div>
