@@ -1,8 +1,18 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import Globe from 'react-globe.gl'
 import Button from '../components/Button';
 
 const About = () => {
+
+    const [hasCopied,setHasCopied] = useState(false)
+    const handleCopy = () => {
+        navigator.clipboard.writeText('amanuelmoha.official@gmail.com');
+        setHasCopied(true);
+        
+        setTimeout(() => {
+            setHasCopied(false);
+        }, 2000);
+    }
     const globeRef = useRef();
 
     const location = {
@@ -129,7 +139,29 @@ const About = () => {
 
                 </div>
 
-                
+                <div className='xl:col-span-2 xl:row-span-3'>
+                    <div className='grid-container'>
+                        <img src="/assets/grid3.png" alt="grid-3" className='w-full sm:h-[266px] h-fit object-contain'/>
+                        <div>
+                            <p className='grid-headtext'>
+                                My Passion for coding
+                            </p>
+                            <p className='grid-subtext'>
+                            Driven by curiosity, I thrive on tackling challenges and learning new technologies.                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div className='xl:col-span-1 xl:row-span-2'>
+                    <div className="grid-container">
+                        <img src="/assets/grid4.png" alt="grid-4" className='w-full md:h-[126px] sm:h-[276px] h-fit object-cover sm:object-top'/>
+                        <div className='space-y-2'>
+                            <p className='grid-subtext text-center'>Contact me</p>
+                            <div className='copy-container' onClick={handleCopy}>
+                                <img src={hasCopied?"assets/tick.svg":"assets/copy.svg"} alt="copy" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
     )
