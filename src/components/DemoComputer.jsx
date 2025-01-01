@@ -111,7 +111,7 @@ const DemoComputer = (props)=> {
           geometry={nodes.Object_16.geometry}
           material={materials['Material.002']}
         >
-          <meshStandardMaterial  map={videoTexture}/>
+          <meshStandardMaterial  map={videoTexture} scale={[-1, 1, 1]}/>
         </mesh>
       </group>
     </group>
