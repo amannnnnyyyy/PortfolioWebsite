@@ -6,6 +6,7 @@ import CanvasLoader from '../components/CanvasLoader';
 import DemoComputer from '../components/DemoComputer';
 
 
+
 const projectCount = myProjects.length;
 const Projects = () => {
     const [selectedProjectIndex, setSelectedProjectIndex] = useState(0)
@@ -63,13 +64,13 @@ const Projects = () => {
                 </div>
             </div>
             <div className='border border-black-300 bg-black-200 rounded-lg h-96 md:h-full'>
-                <Canvas>
+                <Canvas camera={{ position: [0, 2, 5], fov: 50 }}>
                     <ambientLight intensity={1} />
                     <directionalLight position={[10, 10, 5]} intensity={0.5} color={'#9cdba6'} />
                     <Center>
                         <Suspense fallback={<CanvasLoader/>}>
-                            <group scale={2} position={[0,-3,0]} rotation={[0,-0.1,0]}>
-                                    <DemoComputer/>
+                            <group scale={2} position={[0,3,0]} rotation={[0,10,0]}>
+                                    <DemoComputer scale={1.5} position={[0, 0, 0]} rotation={[0, 15, 0]} />
                             </group>
                         </Suspense>
                     </Center>
