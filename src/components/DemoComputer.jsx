@@ -1,11 +1,15 @@
-import React, { useRef, useEffect, useState } from 'react';
-import { useGLTF, useTexture, useVideoTexture } from '@react-three/drei'
+import React, {  useEffect, useRef, useState } from 'react';
+import { useGLTF  } from '@react-three/drei'
+import {useGSAP} from '@gsap/react'
 import { VideoTexture } from 'three';
+import gsap from 'gsap';
 
 const DemoComputer = (props)=> {
+  const group = useRef()
   const {index} = props
-  console.log("indeeeex: ",index)
   const { nodes, materials } = useGLTF('models/scene.gltf')
+
+ 
 
   const [videoTexture, setVideoTexture] = useState(null);
 
@@ -28,12 +32,20 @@ const DemoComputer = (props)=> {
     };
   }, [index]);
 
+  useGSAP(()=>{
+    gsap.from(group.current?.rotation, {
+      y: Math.PI/2,
+      duration:1,
+      ease:'power3.out'
+    })
+  },[index])
+
   if (!videoTexture) {
     return null;
   }
 
   return (
-    <group {...props} dispose={null}>
+    <group ref={group} {...props} dispose={null}>
       <group rotation={[-Math.PI / 2, 0, 0]}>
         <mesh
           castShadow
