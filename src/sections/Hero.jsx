@@ -3,7 +3,7 @@ import { Canvas } from '@react-three/fiber';
 import React, { Suspense } from 'react';
 import HackerRoom from '../components/HackerRoom';
 import CanvasLoader from '../components/CanvasLoader';
-import { Leva, useControls } from 'leva';
+// import { Leva, useControls } from 'leva';
 import { useMediaQuery } from 'react-responsive';
 import { calculateSizes } from '../constants';
 import Target from '../components/Target';
@@ -19,51 +19,51 @@ const Hero = () => {
   const isTablet = useMediaQuery({query: '(min-width: 768px) and (max-width: 1024px)'})
 
   const sizes = calculateSizes(isSmall, isMobile, isTablet)
-  const x = useControls('HackerRoom', {
-      positionX:{
-        value: 2.5,
-        min: -20,
-        max: 20,
-        step: 0.1,
-      },
-      positionY:{
-        value: 2.5,
-        min: -10,
-        max: 10,
-        step: 0.1,
-      },
-      positionZ:{
-        value: 2.5,
-        min: -10,
-        max: 10,
-        step: 0.1,
-      },
-      rotationX:{
-        value: 0,
-        min: -Math.PI,
-        max: Math.PI,
-        step: 0.1,
-      },
-      rotationY:{
-        value: 0,
-        min: -Math.PI,
-        max: Math.PI,
-        step: 0.1,
-      },
-      rotationZ:{
-        value: 0,
-        min: -Math.PI,
-        max: Math.PI,
-        step: 0.1,
-      },
-      scale:{
-        value: 1,
-        min: 0,
-        max: 5,
-        step: 0.1,
-      },
-  },
-  );
+  // const x = useControls('HackerRoom', {
+  //     positionX:{
+  //       value: 2.5,
+  //       min: -20,
+  //       max: 20,
+  //       step: 0.1,
+  //     },
+  //     positionY:{
+  //       value: 2.5,
+  //       min: -10,
+  //       max: 10,
+  //       step: 0.1,
+  //     },
+  //     positionZ:{
+  //       value: 2.5,
+  //       min: -10,
+  //       max: 10,
+  //       step: 0.1,
+  //     },
+  //     rotationX:{
+  //       value: 0,
+  //       min: -Math.PI,
+  //       max: Math.PI,
+  //       step: 0.1,
+  //     },
+  //     rotationY:{
+  //       value: 0,
+  //       min: -Math.PI,
+  //       max: Math.PI,
+  //       step: 0.1,
+  //     },
+  //     rotationZ:{
+  //       value: 0,
+  //       min: -Math.PI,
+  //       max: Math.PI,
+  //       step: 0.1,
+  //     },
+  //     scale:{
+  //       value: 1,
+  //       min: 0,
+  //       max: 5,
+  //       step: 0.1,
+  //     },
+  // },
+  // );
   return (
     <section className='min-h-screen w-full flex flex-col relative gap-10'>
       <div className='w-full mx-auto flex flex-col sm:mt-36 mt-20 c-space gap-3 z-10 relative'>
