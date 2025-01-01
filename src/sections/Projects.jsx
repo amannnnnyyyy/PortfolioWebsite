@@ -1,6 +1,7 @@
 import React, { Suspense, useState } from 'react'
 import { myProjects } from '../constants'
 import { Canvas } from '@react-three/fiber';
+import { Leva, useControls } from 'leva';
 import { Center } from '@react-three/drei';
 import CanvasLoader from '../components/CanvasLoader';
 import DemoComputer from '../components/DemoComputer';
@@ -9,6 +10,52 @@ import DemoComputer from '../components/DemoComputer';
 
 const projectCount = myProjects.length;
 const Projects = () => {
+    const x = useControls('HackerRoom', {
+            positionX:{
+              value: 2.5,
+              min: -20,
+              max: 20,
+              step: 0.1,
+            },
+            positionY:{
+              value: 2.5,
+              min: -10,
+              max: 10,
+              step: 0.1,
+            },
+            positionZ:{
+              value: 2.5,
+              min: -10,
+              max: 10,
+              step: 0.1,
+            },
+            rotationX:{
+              value: 0,
+              min: -Math.PI,
+              max: Math.PI,
+              step: 0.1,
+            },
+            rotationY:{
+              value: 0,
+              min: -Math.PI,
+              max: Math.PI,
+              step: 0.1,
+            },
+            rotationZ:{
+              value: 0,
+              min: -Math.PI,
+              max: Math.PI,
+              step: 0.1,
+            },
+            scale:{
+              value: 1,
+              min: 0,
+              max: 5,
+              step: 0.1,
+            },
+        },
+        );
+
     const [selectedProjectIndex, setSelectedProjectIndex] = useState(0)
     const currentProject = myProjects[selectedProjectIndex]
 
@@ -64,13 +111,14 @@ const Projects = () => {
                 </div>
             </div>
             <div className='border border-black-300 bg-black-200 rounded-lg h-96 md:h-full'>
+                {/* <Leva/> */}
                 <Canvas camera={{ position: [0, 2, 5], fov: 50 }}>
                     <ambientLight intensity={1} />
                     <directionalLight position={[10, 10, 5]} intensity={0.5} color={'#9cdba6'} />
                     <Center>
                         <Suspense fallback={<CanvasLoader/>}>
                             <group scale={2} position={[0,3,0]} rotation={[0,10,0]}>
-                                    <DemoComputer scale={1.5} position={[0, 0, 0]} rotation={[0, 15, 0]} />
+                                    <DemoComputer position={[-2.2,1.7,2.9]} scale={1.6} rotation={[0.1,-0.6, 0]} />
                             </group>
                         </Suspense>
                     </Center>
