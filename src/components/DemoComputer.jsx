@@ -1,36 +1,9 @@
 import React, { useRef, useEffect } from 'react';
 import { useGLTF, useTexture } from '@react-three/drei'
 import { VideoTexture } from 'three';
-import * as THREE from 'three'
 
 const DemoComputer = (props)=> {
   const { nodes, materials } = useGLTF('models/scene.gltf')
-  const videoRef = useRef();
-
-
-  const videoTexture = useRef(null);
-
-  useEffect(() => {
-    if (videoRef.current) {
-      const video = videoRef.current;
-
-      // Ensure the video is loaded and playable
-      video.src = '/assets/vid.mp4'; // Replace with your video file path
-      video.loop = true;
-      video.muted = true;
-      video.playsInline = true;
-      video.play();
-
-      // Create a THREE.VideoTexture from the video element
-      videoTexture.current = new VideoTexture(video);
-    
-    // Clean up the video element
-    return () => {
-      video.pause();
-      video.src = '';
-    };
-    }
-  }, []);
 
   return (
     <group {...props} dispose={null}>
@@ -111,7 +84,7 @@ const DemoComputer = (props)=> {
           castShadow
           receiveShadow
           geometry={nodes.Object_16.geometry}
-          material={new THREE.MeshBasicMaterial({ map: videoTexture.current })}
+          material={materials['Material.002']}
         />
       </group>
     </group>
