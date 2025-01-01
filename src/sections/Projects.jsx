@@ -3,6 +3,7 @@ import { myProjects } from '../constants'
 import { Canvas } from '@react-three/fiber';
 import { Center } from '@react-three/drei';
 import CanvasLoader from '../components/CanvasLoader';
+import DemoComputer from '../components/DemoComputer';
 
 
 const projectCount = myProjects.length;
@@ -68,7 +69,7 @@ const Projects = () => {
                     <Center>
                         <Suspense fallback={<CanvasLoader/>}>
                             <group scale={2} position={[0,-3,0]} rotation={[0,-0.1,0]}>
-                                    
+                                    <DemoComputer/>
                             </group>
                         </Suspense>
                     </Center>
