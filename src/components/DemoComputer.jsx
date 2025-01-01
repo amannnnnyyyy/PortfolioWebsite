@@ -3,13 +3,15 @@ import { useGLTF, useTexture, useVideoTexture } from '@react-three/drei'
 import { VideoTexture } from 'three';
 
 const DemoComputer = (props)=> {
+  const {index} = props
+  console.log("indeeeex: ",index)
   const { nodes, materials } = useGLTF('models/scene.gltf')
 
   const [videoTexture, setVideoTexture] = useState(null);
 
   useEffect(() => {
     const video = document.createElement('video');
-    video.src = '/textures/project/project1.mp4';
+    video.src = `/textures/project/project${index+1}.mp4`;
     video.loop = true;
     video.muted = true;
     video.autoplay = true;
@@ -24,10 +26,10 @@ const DemoComputer = (props)=> {
       video.pause();
       video.src = '';
     };
-  }, []);
+  }, [index]);
 
   if (!videoTexture) {
-    return null; // Or return a loading state while the video is not ready
+    return null;
   }
 
   return (

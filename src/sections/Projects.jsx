@@ -120,7 +120,7 @@ const Projects = () => {
                     <Center>
                         <Suspense fallback={<CanvasLoader/>}>
                             <group scale={2} position={[0,3,0]} rotation={[0,10,0]}>
-                                <DemoComputer position={[0.1,-1.9,-1.3]} scale={0.5} rotation={[0,-1.8, -3.1]} />
+                                <DemoComputer position={[0.1,-1.9,-1.3]} scale={0.5} rotation={[0,-1.8, -3.1]} index={selectedProjectIndex}/>
                             </group>
                         </Suspense>
                     </Center>
