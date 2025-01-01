@@ -1,9 +1,34 @@
-import React, { useRef, useEffect } from 'react';
-import { useGLTF, useTexture } from '@react-three/drei'
+import React, { useRef, useEffect, useState } from 'react';
+import { useGLTF, useTexture, useVideoTexture } from '@react-three/drei'
 import { VideoTexture } from 'three';
 
 const DemoComputer = (props)=> {
   const { nodes, materials } = useGLTF('models/scene.gltf')
+
+  const [videoTexture, setVideoTexture] = useState(null);
+
+  useEffect(() => {
+    const video = document.createElement('video');
+    video.src = '/textures/project/project1.mp4';
+    video.loop = true;
+    video.muted = true;
+    video.autoplay = true;
+    video.playsInline = true;
+
+    video.oncanplaythrough = () => {
+      setVideoTexture(new VideoTexture(video));
+      video.play();
+    };
+
+    return () => {
+      video.pause();
+      video.src = '';
+    };
+  }, []);
+
+  if (!videoTexture) {
+    return null; // Or return a loading state while the video is not ready
+  }
 
   return (
     <group {...props} dispose={null}>
@@ -85,7 +110,9 @@ const DemoComputer = (props)=> {
           receiveShadow
           geometry={nodes.Object_16.geometry}
           material={materials['Material.002']}
-        />
+        >
+          <meshStandardMaterial  map={videoTexture}/>
+        </mesh>
       </group>
     </group>
   )
