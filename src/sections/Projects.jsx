@@ -5,7 +5,7 @@ import { myProjects } from '../constants'
 const projectCount = myProjects.length;
 const Projects = () => {
     const [selectedProjectIndex, setSelectedProjectIndex] = useState(0)
-    const currentProject = myProjects[4]
+    const currentProject = myProjects[selectedProjectIndex]
 
     const handleNavigation = (direction)=>{
             setSelectedProjectIndex((prevIndex)=>{
