@@ -2,7 +2,7 @@ import React, { Suspense, useState } from 'react'
 import { myProjects } from '../constants'
 import { Canvas } from '@react-three/fiber';
 import { Leva, useControls } from 'leva';
-import { Center } from '@react-three/drei';
+import { Center, OrbitControls } from '@react-three/drei';
 import CanvasLoader from '../components/CanvasLoader';
 import DemoComputer from '../components/DemoComputer';
 
@@ -10,51 +10,51 @@ import DemoComputer from '../components/DemoComputer';
 
 const projectCount = myProjects.length;
 const Projects = () => {
-    const x = useControls('HackerRoom', {
-            positionX:{
-              value: 2.5,
-              min: -20,
-              max: 20,
-              step: 0.1,
-            },
-            positionY:{
-              value: 2.5,
-              min: -10,
-              max: 10,
-              step: 0.1,
-            },
-            positionZ:{
-              value: 2.5,
-              min: -10,
-              max: 10,
-              step: 0.1,
-            },
-            rotationX:{
-              value: 0,
-              min: -Math.PI,
-              max: Math.PI,
-              step: 0.1,
-            },
-            rotationY:{
-              value: 0,
-              min: -Math.PI,
-              max: Math.PI,
-              step: 0.1,
-            },
-            rotationZ:{
-              value: 0,
-              min: -Math.PI,
-              max: Math.PI,
-              step: 0.1,
-            },
-            scale:{
-              value: 1,
-              min: 0,
-              max: 5,
-              step: 0.1,
-            },
-        },
-        );
+    // const x = useControls('HackerRoom', {
+    //         positionX:{
+    //           value: 2.5,
+    //           min: -20,
+    //           max: 20,
+    //           step: 0.1,
+    //         },
+    //         positionY:{
+    //           value: 2.5,
+    //           min: -10,
+    //           max: 10,
+    //           step: 0.1,
+    //         },
+    //         positionZ:{
+    //           value: 2.5,
+    //           min: -10,
+    //           max: 10,
+    //           step: 0.1,
+    //         },
+    //         rotationX:{
+    //           value: 0,
+    //           min: -Math.PI,
+    //           max: Math.PI,
+    //           step: 0.1,
+    //         },
+    //         rotationY:{
+    //           value: 0,
+    //           min: -Math.PI,
+    //           max: Math.PI,
+    //           step: 0.1,
+    //         },
+    //         rotationZ:{
+    //           value: 0,
+    //           min: -Math.PI,
+    //           max: Math.PI,
+    //           step: 0.1,
+    //         },
+    //         scale:{
+    //           value: 1,
+    //           min: 0,
+    //           max: 5,
+    //           step: 0.1,
+    //         },
+    //     },
+    //     );
 
     const [selectedProjectIndex, setSelectedProjectIndex] = useState(0)
     const currentProject = myProjects[selectedProjectIndex]
@@ -122,6 +122,11 @@ const Projects = () => {
                             </group>
                         </Suspense>
                     </Center>
+                    <OrbitControls
+                            enableZoom={true}
+                            enablePan={true}
+                            enableRotate={true}
+                        />
                 </Canvas>
             </div>
         </div>
