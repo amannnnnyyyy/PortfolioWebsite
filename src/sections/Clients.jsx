@@ -12,7 +12,7 @@ const Clients = () => {
                     <div>
                         <p className='text-white font-light'>{review}</p>
                         <div className='client-content'>
-                            <div className='flex gap-3'>
+                            <div className='flex gap-3 items-center'>
                                 <img src={img} alt={name} className='w-12 h-12 rounded-full'/>
 
                                 <div className='flex flex-col'>
