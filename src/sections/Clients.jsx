@@ -2,7 +2,7 @@ import React from 'react'
 
 const Clients = () => {
   return (
-    <div>Clients</div>
+    <section className='c-space my-20'>Clients</section>
   )
 }
 
