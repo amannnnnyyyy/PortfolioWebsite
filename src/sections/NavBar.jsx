@@ -18,6 +18,11 @@ const NavBar = () => {
         document.body.classList.toggle('dark-mode')
     }
 
+    const handleLinkClick = () => {
+        setHamburgerIcon(hamburgerIcon === "/assets/menu.svg"? "/assets/close.svg" : "/assets/menu.svg")
+        setIsVisible((isVisible)=>false) 
+      };
+
   return (
     <header className='fixed top-0 left-0 right-0 bg-black/90 z-20'>
         <div className='max-w-7xl mx-auto'>
@@ -40,7 +45,7 @@ const NavBar = () => {
                 </div>
                 
             </div>
-            <Contents visibility = {isVisible}/>
+            <Contents visibility = {isVisible} onLinkClick={handleLinkClick}/>
         </div>
 
     </header>

@@ -1,7 +1,8 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { navLinks } from '../constants'
 
-const Contents = ({visibility}) => {
+const Contents = ({visibility, onLinkClick}) => {
+  
   const li_styles = "py-1 hover:text-sky-700  cursor-pointer"
 
   return (
@@ -9,7 +10,7 @@ const Contents = ({visibility}) => {
         {visibility && (
         <div className='bg-transparent text-white-800 border border-gray-300 p-2 z-30'>
             <ul className='list-none m-0 p-0'>
-                {navLinks.map(({id, name, href}) => <li key={id} className={li_styles}><a href={href}>{name}</a></li>)}
+                {navLinks.map(({id, name, href}) => <li key={id} className={li_styles}><a href={href} onClick={onLinkClick}>{name}</a></li>)}
             </ul>
         </div>
         )}
