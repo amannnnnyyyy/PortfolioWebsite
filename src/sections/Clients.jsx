@@ -8,7 +8,11 @@ const Clients = () => {
 
         <div className='client-container'>
             {clientReviews.map(({id,name,review,img,position})=>(
-                <div key={id} className='client-review'>{name}</div>
+                <div key={id} className='client-review'>
+                    <div>
+                        <p className='text-white font-light'>{review}</p>
+                    </div>
+                </div>
             ))}
         </div>
     </section>
