@@ -39,7 +39,13 @@ const Contact = () => {
                             I'm always here to answer your questions and provide guidance 
                             on your project.
                 </p>
-                <form action="" ref={formRef} onSubmit={handleSubmit} onChange={handleChange}></form>
+                <form action="" ref={formRef} onSubmit={handleSubmit}
+                className='mt-12 flex flex-col space-y-7'>
+                    <label htmlFor="" className='space-y-3'>
+                        <span className='field-label'>Full Name</span>
+                    </label>
+                    <input type="text" name='name' value={form.name} onChange={handleChange}/>
+                </form>
             </div>
             <h3 className='head-text'>
                 Contact Me
