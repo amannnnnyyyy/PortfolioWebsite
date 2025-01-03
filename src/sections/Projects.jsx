@@ -125,9 +125,9 @@ const Projects = () => {
                         </Suspense>
                     </Center>
                     <OrbitControls
-                            enableZoom={true}
-                            enablePan={true}
-                            enableRotate={true}
+                            enableZoom={false}
+                            enablePan={false}
+                            enableRotate={false}
                         />
                 </Canvas>
             </div>
