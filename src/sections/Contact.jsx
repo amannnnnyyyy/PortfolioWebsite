@@ -8,6 +8,8 @@ const Contact = () => {
         message: ''
     })
 
+    const [loading,setLoading] = useState({loading: false})
+
     const handleChange = (e) => {
         setForm({...form, [e.target.name]: e.target.value})
     }
