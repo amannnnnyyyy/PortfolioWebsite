@@ -31,11 +31,11 @@ const Contact = () => {
                 <h3 className='head-text mt-20'>Let's talk</h3>
                 <p className='text-lg text-white-600 mt-3'>
                     I'm here to help you with your web development needs. 
-                    Feel free to reach out to me at 
+                    Feel free to reach out:
                     <a href='mailto:amanuelmoha.official@gmail.com' className='text-white-800'>
-                        amanuelmoha.official@gmail.com</a> or by phone at 
+                    &nbsp;amanuelmoha.official@gmail.com</a> or by phone at 
                         <a href='tel:+251-91-920-2342' className='text-white-800'>
-                            +251-91-920-2342</a>. 
+                        &nbsp;+251-91-920-2342</a>. 
                             I'm always here to answer your questions and provide guidance 
                             on your project.
                 </p>
