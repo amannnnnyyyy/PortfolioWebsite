@@ -12,7 +12,14 @@ const Footer = () => {
             <div className='social-icon'>
                <a href="https://github.com/amannnnnyyyy/"><img src="/assets/github.svg" alt="github" className='ml-3 w-1/2 h-1/2'/></a>
             </div>
+            <div className='social-icon'>
+               <a href="https://github.com/amannnnnyyyy/"><img src="/assets/twitter.svg" alt="twitter" className='ml-3 w-1/2 h-1/2'/></a>
+            </div>
+            <div className='social-icon'>
+               <a href="https://github.com/amannnnnyyyy/"><img src="/assets/instagram.svg" alt="istagram" className='ml-3 w-1/2 h-1/2'/></a>
+            </div>
         </div>
+        <p className='text-white-500'>© 2025 Amanuel. All rights reserved.</p>
     </section>
   )
 }
