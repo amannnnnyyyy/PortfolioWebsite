@@ -11,6 +11,16 @@ const Contact = () => {
     const handleChange = (e) => {
         setForm({...form, [e.target.name]: e.target.value})
     }
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        console.log(form);
+        setForm({
+            name: '',
+            email: '',
+            message: ''
+        })
+    }
   return (
     <section className='c-space my-20' id='contact'>
        <div className='relative min-h-screen flex items-center justify-center flex-col'>
