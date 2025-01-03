@@ -1,6 +1,12 @@
-import React from 'react'
+import React, { useRef, useState } from 'react'
 
 const Contact = () => {
+    const formRef = useRef();
+    const [form,setForm] = useState({
+        name: '',
+        email: '',
+        message: ''
+    })
   return (
     <section className='c-space my-20' id='contact'>
        <div className='relative min-h-screen flex items-center justify-center flex-col'>
