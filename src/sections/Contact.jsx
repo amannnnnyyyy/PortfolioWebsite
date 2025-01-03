@@ -1,4 +1,5 @@
 import React, { useRef, useState } from 'react'
+import emailjs from '@emailjs/browser'
 
 const Contact = () => {
     const formRef = useRef();
@@ -14,14 +15,32 @@ const Contact = () => {
         setForm({...form, [name]: value})
     }
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async(e) => {
         e.preventDefault();
-        console.log(form);
+        setLoading(true)
+
+        try{
+        await emailjs.send('service_nxibmbn','template_m8pajts',{
+            from_name: form.name,
+            to_name: 'Amanuel Moha',
+            from_email: form.email,
+            to_email: 'amanuelmoha.official@gmail.com',
+            message: form.message
+        },'O0_ZffSiSuHudavRI')
         setForm({
             name: '',
             email: '',
             message: ''
         })
+
+        setLoading(false);
+        alert('Your message has been sent successfully. I will get back to you shortly.')
+    }catch(e){
+        setLoading(false);
+        console.error(e)
+        alert('Failed to send your message. Please try again later.')
+    }
+        
     }
   return (
     <section className='c-space my-20' id='contact'>
