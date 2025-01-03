@@ -26,9 +26,9 @@ const Contact = () => {
   return (
     <section className='c-space my-20' id='contact'>
        <div className='relative min-h-screen flex items-center justify-center flex-col'>
-            <img src="/assets/terminal.png" alt="terminal background" className='absolute inset-0 min-h-screen'/> 
+            <img src="/assets/terminal.png" alt="terminal background" className='absolute inset-0 h-[900px] sm:h-[900px] md:h-[900px] lg:h-[900px]'/> 
             <div className='contact-container'>
-                <h3 className='head-text'>Let's talk</h3>
+                <h3 className='head-text mt-20'>Let's talk</h3>
                 <p className='text-lg text-white-600 mt-3'>
                     I'm here to help you with your web development needs. 
                     Feel free to reach out to me at 
@@ -39,9 +39,9 @@ const Contact = () => {
                             I'm always here to answer your questions and provide guidance 
                             on your project.
                 </p>
-                <form action="" ref={formRef} onSubmit={handleSubmit}
+                <form ref={formRef} onSubmit={handleSubmit}
                 className='mt-12 flex flex-col space-y-7'>
-                    <label htmlFor="" className='space-y-3'>
+                    <label className='space-y-3'>
                         <span className='field-label'>Full Name</span>
                     
                     <input type="text" name='name' value={form.name} onChange={handleChange}
@@ -53,11 +53,15 @@ const Contact = () => {
                     <input type="email" name='email' value={form.email} onChange={handleChange}
                     className='field-input' required placeholder='johndoe2012@gmail.com'/>
                     </label>
+                    <label htmlFor="" className='space-y-3'>
+                        <span className='field-label'>Your message</span>
+                    
+                    <textarea name='message' value={form.message} onChange={handleChange}
+                    className='field-input' required rows={5} placeholder="Hi, I've got a job for you..."/>
+                    </label>
                 </form>
             </div>
-            <h3 className='head-text'>
-                Contact Me
-            </h3>
+            
         </div>
     </section>
   )
