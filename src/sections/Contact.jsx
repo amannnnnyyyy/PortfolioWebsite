@@ -39,7 +39,7 @@ const Contact = () => {
                             I'm always here to answer your questions and provide guidance 
                             on your project.
                 </p>
-                <form action=""></form>
+                <form action="" ref={formRef} onSubmit={handleSubmit} onChange={handleChange}></form>
             </div>
             <h3 className='head-text'>
                 Contact Me
