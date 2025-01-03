@@ -8,7 +8,7 @@ const Contact = () => {
         message: ''
     })
 
-    const [loading,setLoading] = useState({loading: false})
+    const [loading,setLoading] = useState(false)
 
     const handleChange = (e) => {
         setForm({...form, [e.target.name]: e.target.value})
@@ -59,6 +59,9 @@ const Contact = () => {
                     <textarea name='message' value={form.message} onChange={handleChange}
                     className='field-input' required rows={5} placeholder="Hi, I've got a job for you..."/>
                     </label>
+                    <button className='field-btn' type='submit' disabled={loading}>
+                        {loading? 'Sending...':'Send Message'}
+                    </button>
                 </form>
             </div>
             
