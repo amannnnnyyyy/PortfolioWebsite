@@ -43,8 +43,16 @@ const Contact = () => {
                 className='mt-12 flex flex-col space-y-7'>
                     <label htmlFor="" className='space-y-3'>
                         <span className='field-label'>Full Name</span>
+                    
+                    <input type="text" name='name' value={form.name} onChange={handleChange}
+                    className='field-input' required placeholder='John Doe'/>
                     </label>
-                    <input type="text" name='name' value={form.name} onChange={handleChange}/>
+                    <label htmlFor="" className='space-y-3'>
+                        <span className='field-label'>E-mail</span>
+                    
+                    <input type="email" name='email' value={form.email} onChange={handleChange}
+                    className='field-input' required placeholder='johndoe2012@gmail.com'/>
+                    </label>
                 </form>
             </div>
             <h3 className='head-text'>
