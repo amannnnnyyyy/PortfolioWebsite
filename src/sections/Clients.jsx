@@ -1,7 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { clientReviews } from '../constants'
 
 const Clients = () => {
+    const [showInput, setShowInput] = useState(false);
+
   return (
     <section className='c-space my-20'>
         <h3 className='head-text'>Hear from My Clients</h3>
@@ -33,7 +35,12 @@ const Clients = () => {
             <div className='relative'>
         <button 
             className="absolute left-1/2 transform -translate-x-1/2 mt-10 bg-[url('/assets/add.png')] bg-no-repeat bg-contain w-32 h-10"
-        ></button>
+        onClick={()=>(setShowInput(true))}></button>
+        {showInput?<div>
+            <input type="text" placeholder="Write a review..." className='w-full h-10 px-5 py-2 rounded-md border-gray-300 focus:outline-none'/>
+            <button className='bg-sky-700 text-white px-5 py-2 rounded-md'>Submit</button>
+    
+        </div>:<div></div>}
     </div>        
     </section>
   )
