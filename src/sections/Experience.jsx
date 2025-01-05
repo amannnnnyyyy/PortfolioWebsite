@@ -9,7 +9,7 @@ const Experience = () => {
             <h3 className='head-text'>My Work Experience</h3>
             <div className='work-container'>
                 <div className='work-canvas'>
-                    <Canvas></Canvas>
+                    <Canvas>Work to be done</Canvas>
                 </div>
                 <div className='work-content'>
                     <div className='sm:py-10 py-5 sm:px-5 px-2.5'>
