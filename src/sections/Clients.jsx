@@ -4,21 +4,37 @@ import { clientReviews } from '../constants'
 const Clients = () => {
     const [showInput, setShowInput] = useState(false);
 
-    const handleInputChange = (e) => {
+    const [formData, setFormData] = useState({
+        name: '',
+        review: '',
+        image: null,
+      });
+      const [preview, setPreview] = useState(null); // State to hold the preview URL
+    
+      const handleInputChange = (e) => {
         const { name, value } = e.target;
         setFormData({ ...formData, [name]: value });
       };
     
       const handleFileChange = (e) => {
-        setFormData({ ...formData, image: e.target.files[0] });
+        const file = e.target.files[0];
+        if (file) {
+          setFormData({ ...formData, image: file });
+          setPreview(URL.createObjectURL(file)); // Generate a preview URL for the selected file
+        }
       };
     
       const handleSubmit = (e) => {
-        e.preventDefault(); // Prevent default form submission
-        // Add logic to handle form data submission here
+        e.preventDefault();
         console.log('Form data:', formData);
     
-        // For example, upload the image and data to a server or API
+        // Clear form data and preview after submission
+        setFormData({
+          name: '',
+          review: '',
+          image: null,
+        });
+        setPreview(null);
       };
 
   return (
@@ -60,15 +76,21 @@ const Clients = () => {
         >
           <input
             type="text"
+            name="name"
             placeholder="Your Name..."
             className="w-full h-12 px-5 py-2 rounded-md border-gray-300 focus:outline-none"
+            value={formData.name}
+            onChange={handleInputChange}
             required
           />
            <input
-            type="text"
-            placeholder="Your Job Position..."
-            className="w-full h-12 px-5 py-2 rounded-md border-gray-300 focus:outline-none"
-            required
+           type="text"
+           name="position"
+           placeholder="Your Job Position..."
+           className="w-full h-12 px-5 py-2 rounded-md border-gray-300 focus:outline-none"
+           value={formData.name}
+           onChange={handleInputChange}
+           required
           />
           <input
             type="file"
@@ -79,12 +101,23 @@ const Clients = () => {
             required
           />
           <textarea
+            name="review"
             cols={30}
             rows={5}
             placeholder="Write a review..."
             className="w-full px-5 py-2 rounded-md border-gray-300 focus:outline-none"
+            value={formData.review}
+            onChange={handleInputChange}
             required
           ></textarea>
+          {preview && (
+            <div className="w-20 h-20 mt-2">
+              <img
+                src={preview}
+                alt="Preview"
+                className="w-full h-full object-cover rounded-md border border-gray-300"
+              />
+            </div>)}
           <button
             type="submit"
             className="bg-sky-700 text-white px-5 py-2 rounded-md"
