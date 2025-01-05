@@ -29,7 +29,12 @@ const Clients = () => {
                     </div>
                 </div>
             ))}
-        </div>
+            </div>
+            <div className='relative'>
+        <button 
+            className="absolute left-1/2 transform -translate-x-1/2 mt-10 bg-[url('/assets/add.png')] bg-no-repeat bg-contain w-32 h-10"
+        ></button>
+    </div>        
     </section>
   )
 }
