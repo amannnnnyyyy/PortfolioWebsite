@@ -33,15 +33,35 @@ const Clients = () => {
             ))}
             </div>
             <div className='relative'>
-        <button 
+        {!showInput &&<button 
             className="absolute left-1/2 transform -translate-x-1/2 mt-10 bg-[url('/assets/add.png')] bg-no-repeat bg-contain w-32 h-10"
-        onClick={()=>(setShowInput(true))}></button>
-        {showInput?<div>
-            <input type="text" placeholder="Your Name..." className='w-full h-10 px-5 py-2 rounded-md border-gray-300 focus:outline-none'/>
-            <input type="text" placeholder="Write a review..." className='w-full h-10 px-5 py-2 rounded-md border-gray-300 focus:outline-none'/>
-            <button className='bg-sky-700 text-white px-5 py-2 rounded-md'>Submit</button>
-    
-        </div>:<div></div>}
+        onClick={()=>(setShowInput(true))}></button>}
+         {showInput && (
+        <form
+          className="mt-5 flex flex-col items-center gap-4 w-full max-w-lg mx-auto"
+          onSubmit={handleSubmit}
+        >
+          <input
+            type="text"
+            placeholder="Your Name..."
+            className="w-full h-12 px-5 py-2 rounded-md border-gray-300 focus:outline-none"
+            required
+          />
+          <textarea
+            cols={30}
+            rows={5}
+            placeholder="Write a review..."
+            className="w-full px-5 py-2 rounded-md border-gray-300 focus:outline-none"
+            required
+          ></textarea>
+          <button
+            type="submit"
+            className="bg-sky-700 text-white px-5 py-2 rounded-md"
+          >
+            Submit
+          </button>
+        </form>
+      )}
     </div>        
     </section>
   )
