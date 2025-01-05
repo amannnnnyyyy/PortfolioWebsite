@@ -7,9 +7,10 @@ const Clients = () => {
     const [formData, setFormData] = useState({
         name: '',
         review: '',
+        position: '',
         image: null,
       });
-      const [preview, setPreview] = useState(null); // State to hold the preview URL
+      const [preview, setPreview] = useState(null);
     
       const handleInputChange = (e) => {
         const { name, value } = e.target;
@@ -20,18 +21,28 @@ const Clients = () => {
         const file = e.target.files[0];
         if (file) {
           setFormData({ ...formData, image: file });
-          setPreview(URL.createObjectURL(file)); // Generate a preview URL for the selected file
+          setPreview(URL.createObjectURL(file)); 
         }
       };
     
       const handleSubmit = (e) => {
+        let {name,image,review} = formData;
         e.preventDefault();
+        clientReviews.push(
+            {
+                id: clientReviews.length+1,
+                name,
+                review,
+                img: 'assets/review4.png',
+                position: 'Client',
+            }
+        )
         console.log('Form data:', formData);
     
-        // Clear form data and preview after submission
         setFormData({
           name: '',
           review: '',
+          position: '',
           image: null,
         });
         setPreview(null);
@@ -88,7 +99,7 @@ const Clients = () => {
            name="position"
            placeholder="Your Job Position..."
            className="w-full h-12 px-5 py-2 rounded-md border-gray-300 focus:outline-none"
-           value={formData.name}
+           value={formData.position}
            onChange={handleInputChange}
            required
           />
