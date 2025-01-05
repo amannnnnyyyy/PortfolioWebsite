@@ -4,6 +4,23 @@ import { clientReviews } from '../constants'
 const Clients = () => {
     const [showInput, setShowInput] = useState(false);
 
+    const handleInputChange = (e) => {
+        const { name, value } = e.target;
+        setFormData({ ...formData, [name]: value });
+      };
+    
+      const handleFileChange = (e) => {
+        setFormData({ ...formData, image: e.target.files[0] });
+      };
+    
+      const handleSubmit = (e) => {
+        e.preventDefault(); // Prevent default form submission
+        // Add logic to handle form data submission here
+        console.log('Form data:', formData);
+    
+        // For example, upload the image and data to a server or API
+      };
+
   return (
     <section className='c-space my-20'>
         <h3 className='head-text'>Hear from My Clients</h3>
@@ -45,6 +62,20 @@ const Clients = () => {
             type="text"
             placeholder="Your Name..."
             className="w-full h-12 px-5 py-2 rounded-md border-gray-300 focus:outline-none"
+            required
+          />
+           <input
+            type="text"
+            placeholder="Your Job Position..."
+            className="w-full h-12 px-5 py-2 rounded-md border-gray-300 focus:outline-none"
+            required
+          />
+          <input
+            type="file"
+            name="image"
+            accept="image/*"
+            className="w-full px-5 py-2 rounded-md border-gray-300 focus:outline-none"
+            onChange={handleFileChange}
             required
           />
           <textarea
