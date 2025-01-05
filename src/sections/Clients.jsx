@@ -37,7 +37,6 @@ const Clients = () => {
                 position: 'Client',
             }
         )
-        console.log('Form data:', formData);
     
         setFormData({
           name: '',
@@ -46,6 +45,7 @@ const Clients = () => {
           image: null,
         });
         setPreview(null);
+        setShowInput(false);
       };
 
   return (
