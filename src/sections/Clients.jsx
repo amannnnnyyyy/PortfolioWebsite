@@ -129,12 +129,20 @@ const Clients = () => {
                 className="w-full h-full object-cover rounded-md border border-gray-300"
               />
             </div>)}
+            <div className='flex gap-10'>
+            <button
+            onClick={()=>setShowInput(false)}
+            className="bg-red-700 text-white px-5 py-2 rounded-md"
+          >
+            Cancel
+          </button>
           <button
             type="submit"
             className="bg-sky-700 text-white px-5 py-2 rounded-md"
           >
             Submit
           </button>
+          </div>
         </form>
       )}
     </div>        
