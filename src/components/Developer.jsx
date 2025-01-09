@@ -10,7 +10,7 @@ const Develop = ({animationName='idle',...props}) => {
 
   const { nodes, materials } = useGLTF('models/developer.glb')
 
-  const {animations: idleAnimation} = useFBX('/models/animations/Happy Idle.fbx')
+  const {animations: idleAnimation} = useFBX('/models/animations/idle.fbx')
 
   idleAnimation[0].name = 'idle'
 
@@ -18,6 +18,8 @@ const Develop = ({animationName='idle',...props}) => {
 
   useEffect(()=>{
     actions[animationName].reset().fadeIn(0.5).play()
+
+    return ()=> actions[animationName].fadeOut(0.5)
   },[animationName])
 
   return (
