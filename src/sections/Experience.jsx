@@ -1,9 +1,9 @@
 import { Canvas } from '@react-three/fiber'
 import React, { Suspense } from 'react'
 import { workExperiences } from '../constants'
-import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 import CanvasLoader from '../components/CanvasLoader'
 import Developer from '../components/Developer'
+import { OrbitControls } from '@react-three/drei'
 
 const Experience = () => {
   return (
