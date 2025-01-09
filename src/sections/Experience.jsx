@@ -1,6 +1,7 @@
 import { Canvas } from '@react-three/fiber'
 import React from 'react'
 import { workExperiences } from '../constants'
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 
 const Experience = () => {
   return (
@@ -13,6 +14,7 @@ const Experience = () => {
                         <ambientLight intensity={7}/>
                         <spotLight position={[10,10,10]} angle={0.15} penumbra={1}/>
                         <directionalLight position={[10,10,10]} intensity={1}/>
+                        <OrbitControls enableZoom = {false} maxPolarAngle={Math.PI/2}/>
                     </Canvas>
                 </div>
                 <div className='work-content'>
