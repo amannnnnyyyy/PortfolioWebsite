@@ -74,7 +74,6 @@ const Contact = () => {
                     </label>
                     <label htmlFor="" className='space-y-3'>
                         <span className='field-label'>Your message</span>
-                    
                     <textarea name='message' value={form.message} onChange={handleChange}
                     className='field-input' required rows={5} placeholder="Hi, I've got a job for you..."/>
                     </label>
