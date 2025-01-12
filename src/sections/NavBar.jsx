@@ -3,7 +3,7 @@ import Contents, { NavItems } from '../components/Contents'
 
 const NavBar = () => {
     const [isVisible, setIsVisible] = useState(false)
-    const name = "Amanuel"
+    const name = "Amanuel Moha"
     const [hamburgerIcon, setHamburgerIcon] = useState("/assets/menu.svg")
     const [nightModePic, setNightModePic] = useState("/assets/night.png")
 
